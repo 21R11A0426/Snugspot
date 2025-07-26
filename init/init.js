@@ -13,7 +13,7 @@ async function main() {
 const listing=require('../models/listing.js');
 const initdb=async()=>{
     await listing.deleteMany({});
-    initData.data=initData.data.map((obj)=>({...obj,owner:'LGm7BfDehkYcqgg_FSO82_rXwQ85biZL'}))
+    initData.data=initData.data.map((obj)=>({...obj,owner:'6880ba23797744690aeadea7'}))
     await listing.insertMany(initData.data);
     console.log('added');
 }
