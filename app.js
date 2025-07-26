@@ -16,18 +16,18 @@ const passport=require('passport');
 const LocalStrategy=require('passport-local')
 const user=require("./models/user.js");
 const { env } = require('process');
-
+const secretcode=process.env.SECRET_CODE;
 const dburl=process.env.ATLASDB_URL;
 const store=MongoStore.create({
     mongoUrl:dburl,
     crypto:{
-        secret:"my secret code"
+        secret:secretcode
     },
     touchAfter:24*3600,
 })
 const sessionOptions={
     store,
-    secret:"my secret code",
+    secret:secretcode,
     resave:false,
     saveUninitialized:true,
     cookie:{
