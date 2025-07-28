@@ -74,10 +74,13 @@ app.use(async(req,res,next)=>{
 
     next();
 })
-// app.use(middleware.countries);
+app.use(middleware.countries);
 app.use("/listings",listingsRouter);
 app.use("/listings/:id/reviews",reviewsRouter);
 app.use("/",usersRouter)
+app.get('/', (req, res) => {
+  res.redirect('/listings');
+});
 app.use("",(req,res,next)=>
 {   
 
